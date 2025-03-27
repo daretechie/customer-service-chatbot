@@ -1,0 +1,12 @@
+flask==3.0.0
+python-dotenv==1.0.0
+openai==0.28.1
+langchain==0.0.329
+flask-httpauth==4.8.0
+faiss-cpu==1.7.4
+python-docx==0.8.11
+pdfplumber==0.10.3
+pypdf==3.17.1
+docx2txt==0.8
+unstructured==0.10.19
+csvloader==0.2.1
