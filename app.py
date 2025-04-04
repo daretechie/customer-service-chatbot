@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify, render_template
 import os
 import openai
+
 from werkzeug.utils import secure_filename
 import PyPDF2
 import docx
 import numpy as np
-from openai.embeddings_utils import get_embedding
+
 import pickle
 import hashlib
 
@@ -16,6 +17,13 @@ app.config['ALLOWED_EXTENSIONS'] = {'pdf', 'docx', 'txt'}
 
 # Configure OpenAI API
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
+def get_embedding(text, engine):
+    response = openai.Embedding.create(
+        model=engine,
+        input=text
+    )
+    return response.data[0].embedding
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
