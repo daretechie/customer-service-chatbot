@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Customer Support</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AI Business Support Agent</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>AI Customer Support AI Agent</h1>
-        
-        <div class="nav-buttons">
-            <button class="nav-btn">FAQs</button>
-            <button class="nav-btn">Products Doc</button>
-            <button class="nav-btn upload-btn">Upload Doc</button>
+    <div class="chat-container">
+        <div class="sidebar">
+            <h2>AI Customer Support</h2>
+            <div class="sidebar-buttons">
+                <button id="faqBtn">FAQs</button>
+                <button id="productsBtn">Products Doc</button>
+                <button id="uploadBtn">Upload Doc</button>
+            </div>
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept=".pdf,.docx,.txt">
+                <button id="uploadSubmit">Process Document</button>
+            </div>
         </div>
         
-        <div class="chat-section">
-            <div class="chat-box" id="chat-box">
-                <div class="chat-message bot">Hi there, <br> I am CusBot, the support agent for this store.</div>
+        <div class="chat-area">
+            <div class="chat-header">
+                <h3 id="businessType">Generic Business Support</h3>
             </div>
-            <input type="text" id="user-input" placeholder="Type your message here...">
-            <button id="send-btn">Send</button>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <p>Hello! I'm your AI support agent. Please upload your business document to get started.</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your question here...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+        
+        <div class="faq-modal" id="faqModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Frequently Asked Questions</h3>
+                <div id="faqContent"></div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>
