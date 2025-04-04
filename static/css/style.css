@@ -8,79 +8,86 @@ body {
 .chat-container {
     display: flex;
     height: 100vh;
+    background-color: #e5e5e5;
 }
 
+/* Sidebar Styles */
 .sidebar {
     width: 250px;
-    background-color: #2c3e50;
-    color: white;
+    background-color: #f5f5f5;
+    color: #333;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #ddd;
 }
 
 .sidebar h2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
 }
 
-.sidebar-buttons {
+.sidebar-nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.sidebar-buttons button {
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
+.nav-btn {
+    padding: 10px 15px;
+    text-align: left;
+    background-color: transparent;
+    color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.sidebar-buttons button:hover {
-    background-color: #2980b9;
+.nav-btn:hover {
+    background-color: #eaeaea;
 }
 
-.upload-section {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.nav-btn.active {
+    background-color: #f5f5f5;
+    font-weight: bold;
 }
 
-.upload-section input {
-    padding: 8px;
+.upload-btn {
+    background-color: #F8D648;
+    color: #333;
+    font-weight: bold;
 }
 
-.upload-section button {
-    padding: 10px;
-    background-color: #27ae60;
-    color: white;
+.upload-btn:hover {
+    background-color: #f0c832;
+}
+
+.add-info {
+    margin-top: 20px;
+}
+
+#addInfoBtn {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #333;
     border: none;
-    border-radius: 5px;
+    text-align: left;
     cursor: pointer;
 }
 
-.upload-section button:hover {
-    background-color: #219653;
-}
-
+/* Chat Area Styles */
 .chat-area {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: white;
-}
-
-.chat-header {
-    padding: 15px;
-    background-color: #3498db;
-    color: white;
-    text-align: center;
+    background-color: #e5e5e5;
+    position: relative;
 }
 
 .chat-messages {
@@ -93,24 +100,28 @@ body {
 }
 
 .message {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 18px;
-    line-height: 1.4;
+    max-width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 1.5;
+    background-color: #FFF9D9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    align-self: flex-start;
 }
 
 .message.user {
     align-self: flex-end;
-    background-color: #3498db;
-    color: white;
-    border-bottom-right-radius: 5px;
+    background-color: #e9f5fe;
 }
 
-.message.bot {
-    align-self: flex-start;
-    background-color: #ecf0f1;
-    color: #2c3e50;
-    border-bottom-left-radius: 5px;
+.message-header {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.message-header p {
+    margin: 0;
+    padding: 2px 0;
 }
 
 .chat-input {
@@ -122,7 +133,7 @@ body {
 
 .chat-input input {
     flex: 1;
-    padding: 10px;
+    padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
@@ -131,18 +142,20 @@ body {
 .chat-input button {
     margin-left: 10px;
     padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
+    background-color: #F8D648;
+    color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .chat-input button:hover {
-    background-color: #2980b9;
+    background-color: #f0c832;
 }
 
-.faq-modal {
+/* Modal Styles */
+.upload-modal, .faq-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -155,12 +168,12 @@ body {
 
 .modal-content {
     background-color: white;
-    margin: 5% auto;
+    margin: 10% auto;
     padding: 20px;
-    width: 60%;
+    width: 50%;
     max-height: 70vh;
     overflow-y: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative;
 }
 
@@ -168,11 +181,52 @@ body {
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+    color: #333;
 }
 
 #faqContent {
     margin-top: 20px;
+}
+
+/* File Upload Styles */
+#fileInput {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#uploadSubmit {
+    padding: 10px 15px;
+    background-color: #F8D648;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#uploadSubmit:hover {
+    background-color: #f0c832;
+}
+
+/* List Styles (for FAQs or product links) */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #3366cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
