@@ -1,76 +1,92 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 20px;
-    background-color: #f5f5f5;
 }
 
-.chat-container, .admin-container {
+.container {
+    width: 80%;
     max-width: 800px;
-    margin: 0 auto;
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#chat-history {
-    height: 500px;
-    overflow-y: auto;
+h1 {
+    text-align: center;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 20px;
-    border: 1px solid #eee;
-    padding: 15px;
-    border-radius: 5px;
 }
 
-.user-message {
-    background-color: #e3f2fd;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-}
-
-.bot-message {
-    background-color: #f8f9fa;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border-left: 3px solid #007bff;
-}
-
-.input-area {
-    display: flex;
-    gap: 10px;
-}
-
-input[type="text"], input[type="file"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+.nav-btn {
+    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    background: #ddd;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.upload-btn {
+    background: gold;
+    font-weight: bold;
 }
 
-.upload-section {
-    margin-top: 20px;
+/* Chat Section */
+.chat-section {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.error {
-    color: #dc3545;
-    border-color: #dc3545;
+.chat-box {
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.chat-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.bot {
+    background: #ffffcc;
+    text-align: left;
+}
+
+/* Input and Send Button */
+#user-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#send-btn {
+    padding: 10px 15px;
+    background: gold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
