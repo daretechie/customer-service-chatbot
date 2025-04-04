@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('fileInput');
     const uploadSubmit = document.getElementById('uploadSubmit');
     const faqBtn = document.getElementById('faqBtn');
+    const productsBtn = document.getElementById('productsBtn');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const addInfoBtn = document.getElementById('addInfoBtn');
+    
+    // Modal elements
     const faqModal = document.getElementById('faqModal');
-    const closeModal = document.querySelector('.close');
+    const uploadModal = document.getElementById('uploadModal');
+    const closeButtons = document.querySelectorAll('.close');
     const faqContent = document.getElementById('faqContent');
     
     let currentDocumentHash = '';
@@ -85,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentDocumentHash = data.document_hash;
             
             // Update UI
-            document.getElementById('businessType').textContent = `Document Support (${data.chunk_count} chunks)`;
+            uploadModal.style.display = 'none';
             
             addMessage("Document processed successfully! I'm ready to answer your questions.", 'bot');
             addMessage(`I've generated ${data.faqs.split('Q:').length - 1} FAQs based on your document.`, 'bot');
@@ -99,24 +105,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // FAQ modal
+    // Navigation buttons
     faqBtn.addEventListener('click', function() {
         if (!currentDocumentHash) {
             addMessage("Please upload a document first to generate FAQs.", 'bot');
             return;
         }
         faqModal.style.display = 'block';
+        
+        // Update active button
+        setActiveButton(faqBtn);
     });
     
-    closeModal.addEventListener('click', function() {
-        faqModal.style.display = 'none';
+    productsBtn.addEventListener('click', function() {
+        // Placeholder for products doc functionality
+        addMessage("Products documentation will be displayed here.", 'bot');
+        
+        // Update active button
+        setActiveButton(productsBtn);
     });
     
+    uploadBtn.addEventListener('click', function() {
+        uploadModal.style.display = 'block';
+        
+        // Update active button
+        setActiveButton(uploadBtn);
+    });
+    
+    addInfoBtn.addEventListener('click', function() {
+        addMessage("You can add more information to enhance your support experience.", 'bot');
+    });
+    
+    // Close modal buttons
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            faqModal.style.display = 'none';
+            uploadModal.style.display = 'none';
+        });
+    });
+    
+    // Click outside to close modals
     window.addEventListener('click', function(event) {
         if (event.target === faqModal) {
             faqModal.style.display = 'none';
         }
+        if (event.target === uploadModal) {
+            uploadModal.style.display = 'none';
+        }
     });
+    
+    // Set active button
+    function setActiveButton(button) {
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
+    }
     
     // Event listeners
     sendBtn.addEventListener('click', sendMessage);
