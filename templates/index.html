@@ -3,48 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Business Support Agent</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>AI Customer Support Agent</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="chat-container">
         <div class="sidebar">
-            <h2>AI Customer Support</h2>
-            <div class="sidebar-buttons">
-                <button id="faqBtn">FAQs</button>
-                <button id="productsBtn">Products Doc</button>
-                <button id="uploadBtn">Upload Doc</button>
+            <h2 id="businessType">AI Customer Support Agent</h2>
+            
+            <div class="sidebar-nav">
+                <button class="nav-btn active" id="faqBtn">FAQs</button>
+                <button class="nav-btn" id="productsBtn">Products Doc</button>
+                <button class="nav-btn upload-btn" id="uploadBtn">Upload Doc</button>
             </div>
-            <div class="upload-section">
-                <input type="file" id="fileInput" accept=".pdf,.docx,.txt">
-                <button id="uploadSubmit">Process Document</button>
+            
+            <div class="add-info">
+                <button id="addInfoBtn">Add More Information</button>
             </div>
         </div>
         
         <div class="chat-area">
-            <div class="chat-header">
-                <h3 id="businessType">Generic Business Support</h3>
-            </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
-                    <p>Hello! I'm your AI support agent. Please upload your business document to get started.</p>
+                    <div class="message-header">
+                        <p>Hi there.</p>
+                        <p>I am FaithBot the support agent for this store.</p>
+                    </div>
+                    <p>How can I help?</p>
                 </div>
             </div>
             <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Type your question here...">
+                <input type="text" id="userInput" placeholder="Type your message here...">
                 <button id="sendBtn">Send</button>
-            </div>
-        </div>
-        
-        <div class="faq-modal" id="faqModal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Frequently Asked Questions</h3>
-                <div id="faqContent"></div>
             </div>
         </div>
     </div>
 
-    <script src="/static/script.js"></script>
+    <!-- Upload Modal -->
+    <div class="upload-modal" id="uploadModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Upload Document</h3>
+            <input type="file" id="fileInput" accept=".pdf,.docx,.txt">
+            <button id="uploadSubmit">Process Document</button>
+        </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="faq-modal" id="faqModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Frequently Asked Questions</h3>
+            <div id="faqContent"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
 </body>
 </html>
